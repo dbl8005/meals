@@ -6,6 +6,7 @@ class CategoriesScreen extends StatelessWidget {
   const CategoriesScreen({super.key});
 
   @override
+  // Builds the main UI for the categories screen, displaying a grid of category items.
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
