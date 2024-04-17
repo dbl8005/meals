@@ -30,11 +30,10 @@ class MealItem extends StatelessWidget {
           alignment: Alignment.center,
           child: Text(
             title,
-            style: Theme.of(context).textTheme.headline4!.copyWith(
+            style: Theme.of(context).textTheme.titleLarge!.copyWith(
                   color: Theme.of(context).colorScheme.onBackground,
                 ),
             textAlign: TextAlign.center,
-            softWrap: true,
           ),
         ),
       ),
