@@ -25,10 +25,7 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: theme,
-      home: MealsScreen(
-        meals: [],
-        title: 'Meals!',
-      ),
+      home: CategoriesScreen(),
     );
   }
 }

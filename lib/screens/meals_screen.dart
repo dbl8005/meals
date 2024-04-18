@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:meals/widgets/meal_item.dart';
-
 import '../models/meal.dart';
 
 class MealsScreen extends StatelessWidget {
@@ -16,7 +15,11 @@ class MealsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Widget content = ListView.builder(
-      itemBuilder: (context, index) => Text(meals[index].title),
+      itemCount: meals.length,
+      itemBuilder: (context, index) => Text(
+        meals[index].title,
+        style: TextStyle(color: Colors.white),
+      ),
     );
     if (meals.isEmpty) {
       content = Center(
