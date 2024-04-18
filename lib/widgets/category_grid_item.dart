@@ -20,7 +20,6 @@ class CategoryGridItem extends StatelessWidget {
               builder: (ctx) => MealsScreen(
                     title: category.title,
                     meals: dummyMeals,
-                    selectedCategory: category.id,
                   )),
         );
         print(category.id);

@@ -8,7 +8,6 @@ class MealsScreen extends StatelessWidget {
     super.key,
     required this.title,
     required this.meals,
-    required String selectedCategory,
   });
 
   final String title;
