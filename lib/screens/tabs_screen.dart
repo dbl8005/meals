@@ -22,7 +22,7 @@ class _TabsScreenState extends State<TabsScreen> {
     Widget activePage = const CategoriesScreen();
     var activePageTitle = 'Categories';
     if (_selectedPageIndex == 1) {
-      activePage = const MealsScreen(title: 'Favorites', meals: []);
+      activePage = const MealsScreen(meals: []);
       activePageTitle = 'Your Favorites';
     }
     return Scaffold(
@@ -31,9 +31,8 @@ class _TabsScreenState extends State<TabsScreen> {
       ),
       body: activePage,
       bottomNavigationBar: BottomNavigationBar(
-        onTap: (index) {
-          _selectPage(index);
-        },
+        onTap: _selectPage,
+        currentIndex: _selectedPageIndex,
         items: const [
           BottomNavigationBarItem(
               icon: Icon(Icons.fastfood_sharp), label: 'Categories'),
