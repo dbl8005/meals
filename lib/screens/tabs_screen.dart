@@ -92,7 +92,8 @@ class _TabsScreenState extends State<TabsScreen> {
       if (_selectedFilters[Filter.vegetarian]! && !meal.isVegetarian) {
         return false;
       }
-    });
+      return true;
+    }).toList();
 
     Widget activePage = CategoriesScreen(
       onToggleFavorite: _toggleMealFavoriteStatus,
