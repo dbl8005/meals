@@ -81,7 +81,7 @@ class _FiltersScreenState extends State<FiltersScreen> {
                       color: Theme.of(context).colorScheme.onBackground),
                 ),
                 activeColor: Theme.of(context).colorScheme.tertiary,
-                contentPadding: const EdgeInsets.only(left: 34, right: 22),
+                contentPadding: EdgeInsets.only(left: 34, right: 22),
               ),
               SwitchListTile(
                 title: Text(
@@ -101,7 +101,7 @@ class _FiltersScreenState extends State<FiltersScreen> {
                       color: Theme.of(context).colorScheme.onBackground),
                 ),
                 activeColor: Theme.of(context).colorScheme.tertiary,
-                contentPadding: const EdgeInsets.only(left: 34, right: 22),
+                contentPadding: EdgeInsets.only(left: 34, right: 22),
               ),
               SwitchListTile(
                 title: Text(
@@ -121,7 +121,7 @@ class _FiltersScreenState extends State<FiltersScreen> {
                       color: Theme.of(context).colorScheme.onBackground),
                 ),
                 activeColor: Theme.of(context).colorScheme.tertiary,
-                contentPadding: const EdgeInsets.only(left: 34, right: 22),
+                contentPadding: EdgeInsets.only(left: 34, right: 22),
               ),
               SwitchListTile(
                 title: Text(
@@ -141,7 +141,7 @@ class _FiltersScreenState extends State<FiltersScreen> {
                       color: Theme.of(context).colorScheme.onBackground),
                 ),
                 activeColor: Theme.of(context).colorScheme.tertiary,
-                contentPadding: const EdgeInsets.only(left: 34, right: 22),
+                contentPadding: EdgeInsets.only(left: 34, right: 22),
               ),
             ],
           ),
