@@ -6,7 +6,16 @@ import 'package:meals/screens/categories_screen.dart';
 import 'package:meals/screens/meals_screen.dart';
 import 'package:meals/screens/tabs_screen.dart';
 
-final theme = ThemeData(
+final themeLight = ThemeData(
+  useMaterial3: true,
+  colorScheme: ColorScheme.fromSeed(
+    brightness: Brightness.light,
+    seedColor: const Color.fromARGB(255, 63, 17, 177),
+  ),
+  textTheme: GoogleFonts.latoTextTheme(),
+);
+
+final themeDark = ThemeData(
   useMaterial3: true,
   colorScheme: ColorScheme.fromSeed(
     brightness: Brightness.dark,
@@ -26,8 +35,10 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      theme: theme,
-      home: TabsScreen(),
+      theme: themeLight,
+      darkTheme: themeDark,
+      themeMode: ThemeMode.system,
+      home: const TabsScreen(),
     );
   }
 }
