@@ -34,7 +34,7 @@ class CategoriesScreen extends StatelessWidget {
   // Builds the main UI for the categories screen, displaying a grid of category items.
   Widget build(BuildContext context) {
     return GridView(
-      padding: EdgeInsets.all(12),
+      padding: const EdgeInsets.all(12),
       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 2,
         childAspectRatio: 3 / 2,

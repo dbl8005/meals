@@ -42,7 +42,7 @@ class MealDetailScreen extends StatelessWidget {
                     fontWeight: FontWeight.bold,
                   ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 14,
             ),
             for (final ingredient in meal.ingredients)
@@ -59,7 +59,7 @@ class MealDetailScreen extends StatelessWidget {
                     fontWeight: FontWeight.bold,
                   ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 14,
             ),
             for (var i = 1; i <= meal.steps.length; i++)
