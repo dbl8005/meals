@@ -39,7 +39,7 @@ class _MainDrawerState extends ConsumerState<MainDrawer> {
                 ),
                 const SizedBox(width: 20),
                 Text(
-                  'Cooking Up!',
+                  'Get Cookin\'',
                   style: Theme.of(context)
                       .textTheme
                       .titleLarge!
