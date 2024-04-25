@@ -278,7 +278,7 @@ const dummyMeals = [
     affordability: Affordability.pricey,
     complexity: Complexity.simple,
     imageUrl:
-        'https://cdn.pixabay.com/photo/2014/10/23/18/05/burger-500054_1280.jpg',
+        'https://recipe-graphics.grocerywebsite.com/0_GraphicsRecipes/4589_4k.jpg',
     duration: 45,
     ingredients: [
       '300g Cattle Hack',

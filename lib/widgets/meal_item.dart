@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:meals/models/meal.dart';
 import 'package:meals/providers/favorites_provider.dart';
@@ -47,12 +48,15 @@ class MealItem extends ConsumerWidget {
         },
         child: Stack(
           children: [
-            FadeInImage(
-              fit: BoxFit.cover,
-              height: 200,
-              width: double.infinity,
-              placeholder: MemoryImage(kTransparentImage),
-              image: NetworkImage(meal.imageUrl),
+            Hero(
+              tag: meal.id,
+              child: FadeInImage(
+                fit: BoxFit.cover,
+                height: 200,
+                width: double.infinity,
+                placeholder: MemoryImage(kTransparentImage),
+                image: NetworkImage(meal.imageUrl),
+              ),
             ),
             Positioned(
               bottom: 0,
