@@ -79,6 +79,19 @@ class _MainDrawerState extends State<MainDrawer> {
               widget.onSelectScreen('filters');
             },
           ),
+          ListTile(
+            leading: const Icon(
+              Icons.brightness_6_outlined,
+              size: 26,
+            ),
+            title: Text(
+              'Dark Mode',
+              style: Theme.of(context).textTheme.titleSmall!.copyWith(
+                  color: Theme.of(context).colorScheme.onBackground,
+                  fontSize: 24),
+            ),
+            onTap: () {},
+          ),
         ],
       ),
     );
