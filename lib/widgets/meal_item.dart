@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:meals/models/meal.dart';
+import 'package:meals/providers/favorites_provider.dart';
 import 'package:meals/screens/meal_details_screen.dart';
 import 'package:meals/widgets/meal_item_trait.dart';
 import 'package:transparent_image/transparent_image.dart';
 
-class MealItem extends StatelessWidget {
+class MealItem extends ConsumerWidget {
   const MealItem({
     super.key,
     required this.meal,
@@ -22,7 +24,8 @@ class MealItem extends StatelessWidget {
   }
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final isFavorite = ref.watch(favoriteMealsProvider).contains(meal);
     return Card(
       margin: const EdgeInsets.all(8),
       shape: RoundedRectangleBorder(
@@ -91,7 +94,22 @@ class MealItem extends StatelessWidget {
                   ),
                 ]),
               ),
-            )
+            ),
+            Positioned(
+              bottom: 10,
+              right: 10,
+              child: isFavorite
+                  ? const Icon(
+                      Icons.star,
+                      size: 26,
+                      color: Colors.white,
+                    )
+                  : const Icon(
+                      Icons.star_border,
+                      size: 26,
+                      color: Color.fromARGB(100, 255, 255, 255),
+                    ),
+            ),
           ],
         ),
       ),
