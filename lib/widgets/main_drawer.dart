@@ -81,41 +81,21 @@ class _MainDrawerState extends ConsumerState<MainDrawer> {
             },
           ),
           Spacer(),
-          ListTile(
-            leading: AnimatedSwitcher(
-              duration: const Duration(milliseconds: 500),
-
-              // switch between the icons
-              transitionBuilder: (child, animation) {
-                return RotationTransition(
-                  turns: animation,
-                  child: child,
-                );
-              },
-              child: Icon(
-                themeMode == ThemeMode.light
-                    ? Icons.nights_stay_sharp
-                    : Icons.sunny,
-                size: 26,
-                key: ValueKey(themeMode),
-              ),
-            ),
-            title: themeMode == ThemeMode.light
-                ? Text(
-                    'Dark Mode',
-                    style: Theme.of(context).textTheme.titleSmall!.copyWith(
-                        color: Theme.of(context).colorScheme.onBackground,
-                        fontSize: 24),
-                  )
-                : Text('Light Mode',
-                    style: Theme.of(context).textTheme.titleSmall!.copyWith(
-                        color: Theme.of(context).colorScheme.onBackground,
-                        fontSize: 24)),
-            onTap: () {
-              // use the toggleTheme function from the provider
-              toggleTheme(ref);
-            },
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Icon(Icons.sunny),
+              const SizedBox(width: 10),
+              Switch(
+                  value: themeMode == ThemeMode.dark ? true : false,
+                  onChanged: (checked) {
+                    toggleTheme(ref);
+                  }),
+              const SizedBox(width: 10),
+              Icon(Icons.nights_stay),
+            ],
           ),
+          const SizedBox(height: 10),
         ],
       ),
     );
