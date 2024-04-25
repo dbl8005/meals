@@ -1,20 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:meals/providers/theme_provider.dart';
 
-class MainDrawer extends StatefulWidget {
+class MainDrawer extends ConsumerStatefulWidget {
   MainDrawer({super.key, required this.onSelectScreen});
 
   final void Function(String identifier) onSelectScreen;
 
   @override
-  State<MainDrawer> createState() => _MainDrawerState();
+  ConsumerState<MainDrawer> createState() => _MainDrawerState();
 }
 
-class _MainDrawerState extends State<MainDrawer> {
-  final isDarkModeProvider = StateProvider<bool>((ref) => false);
-
+class _MainDrawerState extends ConsumerState<MainDrawer> {
   @override
   Widget build(BuildContext context) {
+    final themeMode = ref.watch(themeModeStateProvider);
+
     return Drawer(
       child: Column(
         children: [
@@ -79,18 +80,41 @@ class _MainDrawerState extends State<MainDrawer> {
               widget.onSelectScreen('filters');
             },
           ),
+          Spacer(),
           ListTile(
-            leading: const Icon(
-              Icons.brightness_6_outlined,
-              size: 26,
+            leading: AnimatedSwitcher(
+              duration: const Duration(milliseconds: 500),
+
+              // switch between the icons
+              transitionBuilder: (child, animation) {
+                return RotationTransition(
+                  turns: animation,
+                  child: child,
+                );
+              },
+              child: Icon(
+                themeMode == ThemeMode.light
+                    ? Icons.nights_stay_sharp
+                    : Icons.sunny,
+                size: 26,
+                key: ValueKey(themeMode),
+              ),
             ),
-            title: Text(
-              'Dark Mode',
-              style: Theme.of(context).textTheme.titleSmall!.copyWith(
-                  color: Theme.of(context).colorScheme.onBackground,
-                  fontSize: 24),
-            ),
-            onTap: () {},
+            title: themeMode == ThemeMode.light
+                ? Text(
+                    'Dark Mode',
+                    style: Theme.of(context).textTheme.titleSmall!.copyWith(
+                        color: Theme.of(context).colorScheme.onBackground,
+                        fontSize: 24),
+                  )
+                : Text('Light Mode',
+                    style: Theme.of(context).textTheme.titleSmall!.copyWith(
+                        color: Theme.of(context).colorScheme.onBackground,
+                        fontSize: 24)),
+            onTap: () {
+              // use the toggleTheme function from the provider
+              toggleTheme(ref);
+            },
           ),
         ],
       ),
