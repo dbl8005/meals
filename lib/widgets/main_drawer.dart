@@ -1,5 +1,3 @@
-// ignore_for_file: prefer_const_literals_to_create_immutables
-
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:meals/providers/theme_provider.dart';
@@ -17,7 +15,6 @@ class _MainDrawerState extends ConsumerState<MainDrawer> {
   @override
   Widget build(BuildContext context) {
     final themeMode = ref.watch(themeModeStateProvider);
-    Set<String> _selected = {'system'};
 
     return Drawer(
       child: Column(
@@ -84,46 +81,21 @@ class _MainDrawerState extends ConsumerState<MainDrawer> {
             },
           ),
           Spacer(),
-          // Row(
-          //   mainAxisAlignment: MainAxisAlignment.center,
-          //   children: [
-          //     Icon(Icons.sunny),
-          //     const SizedBox(width: 10),
-          //     Switch(
-          //         value: themeMode == ThemeMode.dark ? true : false,
-          //         onChanged: (checked) {
-          //           toggleTheme(ref);
-          //         }),
-          //     const SizedBox(width: 10),
-          //     Icon(Icons.nights_stay),
-          //   ],
-          // ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Icon(Icons.sunny),
+              const SizedBox(width: 10),
+              Switch(
+                  value: themeMode == ThemeMode.dark ? true : false,
+                  onChanged: (checked) {
+                    toggleTheme(ref);
+                  }),
+              const SizedBox(width: 10),
+              Icon(Icons.nights_stay),
+            ],
+          ),
           const SizedBox(height: 10),
-// segmented button with light, dark, and system theme selection
-          Container(
-            child: SegmentedButton(
-              segments: [
-                ButtonSegment(
-                  value: 'light',
-                  label: Text('Light'),
-                ),
-                ButtonSegment(
-                  value: 'system',
-                  label: Text('System'),
-                ),
-                ButtonSegment(
-                  value: 'dark',
-                  label: Text('Dark'),
-                ),
-              ],
-              selected: _selected,
-              onSelectionChanged: (Set<String> newSelected) {
-                setState(() {
-                  _selected = newSelected;
-                });
-              },
-            ),
-          )
         ],
       ),
     );
