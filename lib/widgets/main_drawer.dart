@@ -100,28 +100,30 @@ class _MainDrawerState extends ConsumerState<MainDrawer> {
           // ),
           const SizedBox(height: 10),
 // segmented button with light, dark, and system theme selection
-          SegmentedButton(
-            segments: [
-              ButtonSegment(
-                value: 'light',
-                label: Text('Light'),
-              ),
-              ButtonSegment(
-                value: 'system',
-                label: Text('System'),
-              ),
-              ButtonSegment(
-                value: 'dark',
-                label: Text('Dark'),
-              ),
-            ],
-            selected: _selected,
-            onSelectionChanged: (Set<String> newSelected) {
-              setState(() {
-                _selected = newSelected;
-              });
-            },
-          ),
+          Container(
+            child: SegmentedButton(
+              segments: [
+                ButtonSegment(
+                  value: 'light',
+                  label: Text('Light'),
+                ),
+                ButtonSegment(
+                  value: 'system',
+                  label: Text('System'),
+                ),
+                ButtonSegment(
+                  value: 'dark',
+                  label: Text('Dark'),
+                ),
+              ],
+              selected: _selected,
+              onSelectionChanged: (Set<String> newSelected) {
+                setState(() {
+                  _selected = newSelected;
+                });
+              },
+            ),
+          )
         ],
       ),
     );
