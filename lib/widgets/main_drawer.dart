@@ -17,7 +17,7 @@ class _MainDrawerState extends ConsumerState<MainDrawer> {
   @override
   Widget build(BuildContext context) {
     final themeMode = ref.watch(themeModeStateProvider);
-    Set<String> selected = {'system'};
+    Set<String> _selected = {'system'};
 
     return Drawer(
       child: Column(
@@ -115,10 +115,10 @@ class _MainDrawerState extends ConsumerState<MainDrawer> {
                 label: Text('Dark'),
               ),
             ],
-            selected: selected,
+            selected: _selected,
             onSelectionChanged: (Set<String> newSelected) {
               setState(() {
-                selected = newSelected;
+                _selected = newSelected;
               });
             },
           ),
