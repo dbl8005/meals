@@ -6,6 +6,18 @@ final themeModeStateProvider = StateProvider<ThemeMode?>((ref) {
   return ThemeMode.light;
 });
 
+void toggleToDark(WidgetRef ref) {
+  ref.read(themeModeStateProvider.notifier).state = ThemeMode.dark;
+}
+
+void toggleToLight(WidgetRef ref) {
+  ref.read(themeModeStateProvider.notifier).state = ThemeMode.light;
+}
+
+void toggleToSystem(WidgetRef ref) {
+  ref.read(themeModeStateProvider.notifier).state = ThemeMode.system;
+}
+
 void toggleTheme(WidgetRef ref) {
   ref.read(themeModeStateProvider.notifier).state =
       ref.read(themeModeStateProvider.notifier).state == ThemeMode.dark
