@@ -37,6 +37,7 @@ dependencies:
   hexcolor: ^3.0.1
   riverpod: ^2.5.1
   stroke_text: ^0.0.2
+  toggle_switch: ^2.3.0
   transparent_image: ^2.0.1
 
 dev_dependencies:

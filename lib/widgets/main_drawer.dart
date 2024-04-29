@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:meals/providers/theme_provider.dart';
+import 'package:toggle_switch/toggle_switch.dart';
 
 class MainDrawer extends ConsumerStatefulWidget {
   MainDrawer({super.key, required this.onSelectScreen});
@@ -81,21 +82,42 @@ class _MainDrawerState extends ConsumerState<MainDrawer> {
             },
           ),
           Spacer(),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Icon(Icons.sunny),
-              const SizedBox(width: 10),
-              Switch(
-                  value: themeMode == ThemeMode.dark ? true : false,
-                  onChanged: (checked) {
-                    toggleTheme(ref);
-                  }),
-              const SizedBox(width: 10),
-              Icon(Icons.nights_stay),
-            ],
-          ),
+          // Row(
+          //   mainAxisAlignment: MainAxisAlignment.center,
+          //   children: [
+          //     Icon(Icons.sunny),
+          //     const SizedBox(width: 10),
+          //     Switch(
+          //         value: themeMode == ThemeMode.dark ? true : false,
+          //         onChanged: (checked) {
+          //           toggleTheme(ref);
+          //         }),
+          //     const SizedBox(width: 10),
+          //     Icon(Icons.nights_stay),
+          //   ],
+          // ),
           const SizedBox(height: 10),
+          ToggleSwitch(
+            totalSwitches: 3,
+            labels: [
+              'Light',
+              'System',
+              'Dark',
+            ],
+            onToggle: (index) {
+              print(index);
+              if (index == 0) {
+                toggleToLight(ref);
+              }
+              if (index == 2) {
+                toggleToDark(ref);
+              }
+              if (index == 1) {
+                toggleToSystem(ref);
+              }
+            },
+            changeOnTap: true,
+          )
         ],
       ),
     );
