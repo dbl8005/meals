@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:meals/providers/favorites_provider.dart';
 import 'package:meals/providers/filters_provider.dart';
+import 'package:meals/screens/add_new_meal.dart';
 import 'package:meals/screens/categories_screen.dart';
 import 'package:meals/screens/filters.dart';
 import 'package:meals/screens/meals_screen.dart';
@@ -72,6 +73,20 @@ class _TabsScreenState extends ConsumerState<TabsScreen> {
     return Scaffold(
       appBar: AppBar(
         title: Text(activePageTitle),
+        actions: [
+          activePageTitle == 'Categories'
+              ? IconButton(
+                  icon: Icon(Icons.add),
+                  onPressed: () {
+                    Navigator.of(context).push<void>(
+                      MaterialPageRoute(
+                        builder: (ctx) => AddNewMeal(),
+                      ),
+                    );
+                  },
+                )
+              : Container(),
+        ],
       ),
       drawer: MainDrawer(
         onSelectScreen: _setScreen,
